@@ -1,0 +1,19 @@
+<h2>List of Rented Books</h2>
+<table border="1">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Author</th>
+    <th>Category</th>
+
+  </thead>
+
+  <tr *ngFor = "let book of booksList" >
+    <td *ngIf ="book.isRented">{{book._id}}</td>
+    <td *ngIf ="book.isRented">{{book.title}}</td>
+    <td *ngIf ="book.isRented">{{book.author}}</td>
+    <td *ngIf ="book.isRented">{{book.category}}</td>
+    <td *ngIf="book.isRented"><button (click)="returning(book._id)">Return</button></td>
+  </tr>
+</table>
+

@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Add Book Form</h2>
+  <form>
+    <div class="form-group">
+      <label for="id">id:</label>
+      <input type="number" class="form-control" id="id" placeholder="Enter id" name="id" [(ngModel)]='id'>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" [(ngModel)]='title' >
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" class="form-control" id="author" placeholder="Enter author" name="author" [(ngModel)]='author'>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" class="form-control" id="category" placeholder="Enter categry" name="category"
+        [(ngModel)]='category'>
+    </div>
+
+    <button type="submit" class="btn btn-default" (click)="submit()">Submit</button>
+  </form>
+</div>
