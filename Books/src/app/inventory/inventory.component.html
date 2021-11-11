@@ -1,20 +1,58 @@
-<h2>List of Books</h2>
+<!-- <h2>List of Books</h2>
 <table border="1">
   <thead>
     <th>ID</th>
     <th>Name</th>
     <th>Author</th>
     <th>Category</th>
-
   </thead>
 
-  <tr *ngFor = "let book of bookList">
-    <td>{{book._id}}</td>
-    <td>{{book.title}}</td>
-    <td>{{book.author}}</td>
-    <td>{{book.category}}</td>
-    <td *ngIf="!book.isRented"><button (click) = "delete(book._id)">Delete Book</button></td>
+  <tr *ngFor="let book of bookList">
+    <td>{{ book._id }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.category }}</td>
+    <td *ngIf="!book.isRented">
+      <button (click)="delete(book._id)">Delete Book</button>
+    </td>
     <td *ngIf="book.isRented"><p>Book rented. Can't delete</p></td>
   </tr>
-</table>
+</table> -->
 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Book List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Category</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of bookList">
+          <td>{{ book._id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.category }}</td>
+          <td *ngIf="!book.isRented">
+            <button type="button" class="btn btn-primary">Edit Book</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="delete(book._id)"
+            >
+              Delete Book
+            </button>
+          </td>
+          <td *ngIf="book.isRented"><p>Book rented. Can't delete</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="addnav()">
+      Add Book
+    </button>
+  </div>
+</div>
