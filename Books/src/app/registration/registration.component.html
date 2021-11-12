@@ -1,0 +1,75 @@
+<div>
+    <div>
+       
+        <form [formGroup]="signupForm">
+            <fieldset>
+                <legend>SignUp</legend>
+           
+                <!--First name-->
+            <div class='form-group'>
+                <label for="FirstName">First name</label>
+                    <input type="text" 
+                        id="firstName" 
+                        placeholder="Enter first name" name="username" formControlName="firstname" >
+            </div>
+            <div *ngIf="signupForm.controls.firstname.invalid&&signupForm.controls.firstname.touched">
+            <div *ngIf="signupForm.controls.firstname.errors?.required">"Firstname is mandatory"</div>
+            </div>
+            <br>
+
+
+                 <!--Last name-->
+            <div class='form-group'>
+                <label for="LastName">Last name</label>
+                    <input type="text" 
+                        id="lastName" 
+                        placeholder="Enter last name" name="username" formControlName="lastname" >
+            </div>
+            <div *ngIf="signupForm.controls.lastname.invalid&&signupForm.controls.lastname.touched">
+            <div *ngIf="signupForm.controls.lastname.errors?.required">"Lastname is mandatory"</div>
+            </div>
+            <br>
+            
+
+
+                 <!--Email-->
+            <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="text" 
+                    id="inputEmail" 
+                    placeholder="Email" name="email" formControlName="email" >
+            </div>
+
+            <div *ngIf="signupForm.controls.email.invalid && signupForm.controls.email.touched">Email is invalid</div>
+
+            <br>
+
+                 <!--Password-->
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                     <input type="password" 
+                     id="inputPassword"
+                     placeholder="Password" 
+                     
+                      name="password" formControlName="password" >
+            </div>
+            
+            <div *ngIf="signupForm.controls.password.invalid&&signupForm.controls.password.touched">
+                <div *ngIf="signupForm.controls.password.errors?.required">"Password is mandatory"</div>
+                <div *ngIf="signupForm.controls.password.errors?.minlength">"Password has to be minimum 6 characters"</div>
+            </div>
+
+
+            <br>
+                 <!--Buttons-->
+            <div class="form-group">
+                <label></label>
+                 <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Submit</button> 
+                <!-- <button type="submit" class="btn btn-primary">Submit</button>  -->
+                <button type="reset" class="btn btn-primary" >Cancel</button>
+            
+            </div> 
+        </fieldset>
+        </form>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { RentedbooksComponent } from './rentedbooks/rentedbooks.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BooksListComponent,
     RentedbooksComponent,
     InventoryComponent,
-    AddbookComponent
+    AddbookComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
