@@ -31,4 +31,7 @@ export class InventoryComponent implements OnInit {
   addnav() {
     this.router.navigate(['/addbooks']);
   }
+  editnav(id: number){
+    this.router.navigate(["/editbook",id])
+  }
 }

@@ -1,3 +1,4 @@
+import { EditbookComponent } from './editbook/editbook.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddbookComponent } from './addbook/addbook.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:"addbooks",
     component: AddbookComponent
+  },
+  {
+    path:"editbook/:id",
+    component: EditbookComponent
   }
 ];
 

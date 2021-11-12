@@ -39,7 +39,7 @@
           <td>{{ book.category }}</td>
           <td *ngIf="!book.isRented">
             <button type="button"  data-toggle="modal" data-target="#exampleModal"
-              class="btn btn-success "
+              class="btn btn-success " (click)="editnav(book._id)"
               >Edit Book</button>
 
               <button

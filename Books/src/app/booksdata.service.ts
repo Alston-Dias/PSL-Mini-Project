@@ -26,6 +26,15 @@ export class BooksdataService {
     return this.http.post("http://localhost:3000/books/addbook/", User)
   }
 
+  getBook(id:number): Observable<Book> {
+    return this.http.get<Book>('http://localhost:3000/books/getbook/'+id)
+  }
+
+  editBook(id:number,User: Book): Observable<any> {
+    return this.http.put("http://localhost:3000/books/updatebook/"+id, User)
+  }
+
+
 }
 
 
