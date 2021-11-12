@@ -22,7 +22,8 @@ export class BooksdataService {
     return this.http.delete("http://localhost:3000/books/deletebook/" + id)
   }
 
-  addBook(User: Book): Observable<any> {
+  addBook(User: {_id:any, title: any; author: any; category: any; isRented: boolean; }) {
+    console.log(User);
     return this.http.post("http://localhost:3000/books/addbook/", User)
   }
 
