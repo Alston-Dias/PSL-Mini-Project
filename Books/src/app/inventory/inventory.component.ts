@@ -26,6 +26,7 @@ export class InventoryComponent implements OnInit {
 
   delete(id: number) {
     this.bookdataService.deleteBook(id).subscribe();
+    alert("Book deleted");
     window.location.reload();
   }
   addnav() {

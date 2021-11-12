@@ -26,6 +26,7 @@
   <div class="panel-body">
     <table class="table table-striped ">
       <thead>
+        <th>auto</th>
         <th>ID</th>
         <th>Name</th>
         <th>Author</th>
@@ -33,6 +34,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let book of bookList">
+          <td ></td>
           <td>{{ book._id }}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>

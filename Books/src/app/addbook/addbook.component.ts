@@ -46,7 +46,8 @@ console.log(newBookData);
     this.booksdataService.addBook(newBookData).subscribe(data=>{
       console.log(data);
     })
-    this.router.navigate(['getbooks'])
+    this.router.navigate(['inventory'])
+    alert("book added successfully")
   }
 
 }
