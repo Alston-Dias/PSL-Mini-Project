@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './Book';
 import { Wishlist } from './wishlist';
+import { Cart } from './cart';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,14 @@ export class BooksdataService {
 
   editBook(id:number,User: Book): Observable<any> {
     return this.http.put("http://localhost:3000/books/updatebook/"+id, User)
+  }
+  
+  addtocart(cart : Cart): Observable<any>{
+    return this.http.post("http://localhost:3000/carts/addcart", cart)
+  }
+
+  getcart(username:any): Observable<Wishlist[]>{
+    return this.http.get<Cart[]>("http://localhost:3000/carts/getcart/"+username)
   }
 
 }

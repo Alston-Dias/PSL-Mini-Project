@@ -40,6 +40,7 @@
           <td *ngIf="!book.isRented"><button (click)="rentBook(book._id)">Rent</button></td>
           <td *ngIf="book.isRented"><p>Book rented</p></td>
           <td><button (click)= "addtowishlist(book._id)">Add to wishlist</button></td>
+          <td *ngIf="!book.isRented"><button (click)= "addtocart(book._id)">Add to Cart</button></td>
         </tr>
       </tbody>
     </table>

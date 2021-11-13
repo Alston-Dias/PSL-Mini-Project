@@ -14,6 +14,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { EditbookComponent } from './editbook/editbook.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InventoryComponent } from './inventory/inventory.component';
     WishlistComponent,
     AddbookComponent,
     EditbookComponent,
-    InventoryComponent
+    InventoryComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

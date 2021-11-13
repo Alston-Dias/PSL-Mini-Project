@@ -34,6 +34,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/carts',require('./routes/cart'))
 app.use('/wishlists',require('./routes/wishlist'))
 app.use('/books',require('./routes/books'))
 app.use('/users',require('./routes/user'))
