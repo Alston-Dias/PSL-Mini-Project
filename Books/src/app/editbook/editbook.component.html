@@ -17,16 +17,18 @@
     </div>
 
     <div class="form-group">
-      <label for="category">Category:</label>
-      <input type="text" class="form-control" id="category"  name="category"
+      <label for="category" class="form-label">Category:</label>
+      <input list="categories" class="form-control" id="category"  name="category"
         [(ngModel)]='book.category' required #category="ngModel">
         <small class="form-text text-muted" *ngIf="category.touched && !category.valid">Please Enter Category</small>
-
+        <datalist id="categories" >
+          <!--<option *ngFor="let book of bookList">{{book.category}}</option>-->
+        </datalist>
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="!updateBookForm.valid">Update</button>
+    <button type="submit" class="btn btn-success" (click)="update()" [disabled]="!updateBookForm.valid">Update</button>
   </form>
 
 
-  <button class="btn btn-primary" (click)=toInventory() >Back</button>
+  <button class="btn btn-primary" id='back-button' (click)=toInventory() ><-Back</button>
 </div>
