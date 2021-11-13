@@ -1,28 +1,48 @@
-<p>registration works!</p>
 <div class="container">
   <h2>Registration</h2>
   <form>
+    <!--Firstname-->
     <div class="form-group">
       <label for="fname">First Name:</label>
-      <input type="text" class="form-control" id="fname" placeholder="Enter firstname" name="fname" [(ngModel)]='fname'>
+      <input type="text" class="form-control" id="fname" placeholder="Enter firstname" name="fname" ngModel #fn="ngModel" [(ngModel)]='fname' required>
     </div>
+    <div *ngIf="fn.touched">
+    <div *ngIf="fn.errors?.required"> Firstname is mandatory</div>
+      </div>
+
+      <!--Lastname-->
     <div class="form-group">
       <label for="lname">Last Name:</label>
-      <input type="text" class="form-control" id="lname" placeholder="Enter lastname" name="lname" [(ngModel)]='lname'>
+      <input type="text" class="form-control" id="lname" placeholder="Enter lastname" name="lname" ngModel #ln="ngModel" [(ngModel)]='lname' required>
+    </div>
+    <div *ngIf="ln.touched">
+    <div *ngIf="ln.errors?.required"> Lastname is mandatory</div>
     </div>
 
+
+    <!--Email-->
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]='email'>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ngModel #e="ngModel" [(ngModel)]='email' required>
     </div>
-
+    <div *ngIf="e.invalid && e.touched">Email is invalid</div>
+    
+    
+  
+    <!--Password-->
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" [(ngModel)]='password'>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ngModel #pwd="ngModel" [(ngModel)]='password' required minlength="6">
     </div>
+    <div *ngIf="pwd.invalid && pwd.touched">
+      <div *ngIf="pwd.errors?.required"> Password is mandatory</div>
+      <div *ngIf="pwd.errors?.minlength">Password has to be 6 chars.</div>
+   </div> 
 
 
-    <button type="button" class="btn btn-default" (click)="submit()">Register</button>
+
+
+   <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button> 
+   <button type="reset" class="btn btn-primary" >Cancel</button>
   </form>
 </div>
-

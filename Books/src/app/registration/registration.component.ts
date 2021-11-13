@@ -13,16 +13,10 @@ export class RegistrationComponent implements OnInit {
   lname !: string
   email !: string
   password!: string
-  adduserFrom  !: FormGroup
+  //adduserFrom  !: FormGroup
+  
   constructor(private add:AdduserService,private router:Router){
-    this.adduserFrom = new FormGroup({
-
-      fname: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
-      email:new FormControl('', [Validators.required]),
-      password:new FormControl('', [Validators.required])
-
-    })
+    
 
   }
 
