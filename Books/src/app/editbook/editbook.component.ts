@@ -42,6 +42,7 @@ export class EditbookComponent implements OnInit {
   update(){
     this.bookdataService.editBook(this.bookid,this.book).subscribe()
     this.toInventory()
+    alert("book updated successfully")
   }
 
   resetdefault(){
