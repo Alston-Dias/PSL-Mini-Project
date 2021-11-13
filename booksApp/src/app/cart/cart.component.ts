@@ -52,6 +52,21 @@ export class CartComponent implements OnInit {
       console.log(book.title)
     }
   }
+
+  removeFromCart(bookid:number){
+    this.booksdataService.removeFromCart(bookid).subscribe(response=>{
+      console.log(response)
+      window.location.reload()
+    },error=>{console.log("Error in deleting from cart")})
+  }
+  rent(bookid:number){
+    this.booksdataService.putRentBooks(bookid,{isRented:true,username:window.localStorage.getItem('username')}).subscribe(response=>{
+      console.log(response)
+      this.booksdataService.removeFromCart(bookid).subscribe(response=>{
+        console.log(response)
+      },error=>{console.log("Error in removing from cart")})
+    },error=>{console.log("Error in renting")})
+  }
 }
 
 

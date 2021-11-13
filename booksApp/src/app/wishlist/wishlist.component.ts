@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../Book';
 import { BooksdataService } from '../booksdata.service';
+import { Cart } from '../cart';
 import { Wishlist } from '../wishlist';
 
 @Component({
@@ -12,6 +13,7 @@ export class WishlistComponent implements OnInit {
 
   wishlist : Array<Wishlist> = []
   booklist : Array<Book> = []
+  cart : Array<Cart> = []
   constructor(private booksdataService: BooksdataService) { }
 
   ngOnInit(): void {
@@ -32,7 +34,13 @@ export class WishlistComponent implements OnInit {
   
       }
     },1000)
-  }
+
+
+    //Loading cart 
+    this.booksdataService.getcart(window.localStorage.getItem('username')).subscribe(cart=> {
+      this.cart= cart
+    })
+ }
 
   showwishlist() {
     if (this.wishlist.length > 0) {
@@ -53,5 +61,32 @@ export class WishlistComponent implements OnInit {
       console.log(book.title)
     }
   }
+  addtocart(id:number){
+    var flag = false
+    console.log("Add to cart called")
+    if(this.cart.length < 3){
 
+        for (var book of this.cart){
+          if(id == book.bookid){
+            flag = true
+            break
+          }
+        }
+      
+
+      if(flag == false){
+       alert("Book added to cart")
+      this.booksdataService.addtocart({username : window.localStorage.getItem('username'), bookid:id}).subscribe()
+      }
+
+      else{
+        alert("Book already added to cart")
+      }
+      
+    }
+    else{
+      alert("Can add only 3 books to cart")
+    }
+    
+  }
 }

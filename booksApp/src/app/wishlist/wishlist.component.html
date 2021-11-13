@@ -21,6 +21,7 @@
             <td *ngIf="!book.isRented"><button >Rent</button></td>
             <td *ngIf="book.isRented"><p>Book rented</p></td>
             <td><button >Remove from wishlist</button></td>
+            <td><button (click)="addtocart(book._id)">Add To Cart</button></td>
           </tr>
         </tbody>
       </table>

@@ -56,5 +56,8 @@ export class BooksdataService {
   getcart(username:any): Observable<Wishlist[]>{
     return this.http.get<Cart[]>("http://localhost:3000/carts/getcart/"+username)
   }
-
+  removeFromCart(bookid:any):Observable<any>{
+    return this.http.delete("http://localhost:3000/carts/removefromcart/"+bookid)
+  }
+  
 }

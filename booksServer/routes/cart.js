@@ -13,7 +13,6 @@ router.get('/getcart/:username',(req,res)=>{
 })
 
 router.post('/addcart',(req,res)=>{
-    console.log('here')
     var newCart = new Cart({
         username : req.body.username,
         bookid : req.body.bookid
@@ -25,6 +24,18 @@ router.post('/addcart',(req,res)=>{
         }
         else{
             res.json(cart)
+        }
+    })
+})
+
+
+router.delete('/removefromcart/:id',(req,res)=>{
+    Cart.findOneAndDelete({bookid:req.params.id},(err)=>{
+        if(err) {
+            res.send({message:'Error in deleting book from the cart'})
+        }
+        else {
+            res.send({message:'Deleted book from cart'})
         }
     })
 })
