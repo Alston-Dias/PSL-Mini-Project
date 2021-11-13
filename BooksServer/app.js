@@ -35,7 +35,9 @@ app.use(function (req, res, next) {
 });
 
 
+app.use('/wishlists',require('./routes/wishlist'))
 app.use('/books',require('./routes/books'))
+app.use('/users',require('./routes/user'))
 app.listen(process.env.PORT,()=>{
     console.log("Server listening to " + process.env.PORT)
 })
