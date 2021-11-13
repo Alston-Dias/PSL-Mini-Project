@@ -52,4 +52,9 @@ console.log(newBookData);
     alert("book added successfully")
   }
 
+  
+  toInventory() {
+    this.router.navigate(['inventory']);
+  }
+
 }
