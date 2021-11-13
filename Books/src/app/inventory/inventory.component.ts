@@ -26,10 +26,11 @@ export class InventoryComponent implements OnInit {
 
   delete(id: number) {
     this.bookdataService.deleteBook(id).subscribe();
+    alert("Book deleted");
     window.location.reload();
   }
   addnav() {
-    this.router.navigate(['/addbooks']);
+    this.router.navigate(['/addbooks']); //navigating to access add form, modals not working
   }
   editnav(id: number){
     this.router.navigate(["/editbook",id])

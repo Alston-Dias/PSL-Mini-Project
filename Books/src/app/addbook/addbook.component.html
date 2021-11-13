@@ -1,9 +1,11 @@
 <div class="container">
+  <div class="panel-heading">
   <h2>Add Book Form</h2>
+</div>
   <form #addNewBookForm="ngForm" (submit)="addNewBook(addNewBookForm)">
     <div class="form-group">
       <label for="id">id:</label>
-      <input type="number"  placeholder="Enter id"
+      <input type="number"  placeholder="Enter id" class="form-control"
        name="id"  required ngModel/>
     </div>
 
@@ -37,15 +39,15 @@
         </datalist>
     </div> -->
     <div class="form-group">
-    <label  class="form-label">Category :  </label>
-<input  list="categories"  placeholder="Enter category" name="category"
- required ngModel #category="ngModel"/>
- <small class="form-text text-muted" *ngIf="category.touched && !category.valid">Please Select a Category</small>
-<datalist id="categories" >
-  <option *ngFor="let book of bookList">{{book.category}}</option>
-</datalist>
-</div>
+      <label  class="form-label" for="category">Category :  </label>
+      <input  list="categories" class="form-control"  placeholder="Enter category" name="category"
+        required ngModel #category="ngModel"/>
+      <small class="form-text text-muted" *ngIf="category.touched && !category.valid">Please Select a Category</small>
+      <datalist id="categories" >
+        <option *ngFor="let book of bookList">{{book.category}}</option>
+      </datalist>
+    </div>
 
-    <button type="submit" class="btn btn-default" [disabled]="!addNewBookForm.valid" >Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!addNewBookForm.valid" >Submit</button>
   </form>
 </div>

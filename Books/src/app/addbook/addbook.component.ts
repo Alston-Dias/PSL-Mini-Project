@@ -35,6 +35,7 @@ export class AddbookComponent implements OnInit {
     
   }
   addNewBook(form: { value: {id:any, title: any; author: any; category: any; }; }) {
+    //set form values
     const newBookData={ 
       _id:form.value.id,
       title:form.value.title,
@@ -43,11 +44,12 @@ export class AddbookComponent implements OnInit {
       isRented:false,
     };
 console.log(newBookData);
+// newBookData passed to addBook()
     this.booksdataService.addBook(newBookData).subscribe(data=>{
       console.log(data);
     })
-    this.router.navigate(['getbooks'])
+    this.router.navigate(['inventory'])
+    alert("book added successfully")
   }
 
 }
-// { _id: this.id, title: this.title, author: this.author, category: this.category, isRented: false }
