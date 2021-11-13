@@ -1,3 +1,5 @@
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 import { EditbookComponent } from './editbook/editbook.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +9,23 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { RentedbooksComponent } from './rentedbooks/rentedbooks.component';
 
 const routes: Routes = [
+  {
+    path:"userlogin",
+    component:LoginpageComponent
+  },
+  {
+    path:"",
+    redirectTo:"userlogin",
+    pathMatch:"full"
+
+  },
+
+  {
+    path:"register",
+    component:RegistrationComponent
+  },
+
+
   {
     path : "getbooks",
     component: BooksListComponent

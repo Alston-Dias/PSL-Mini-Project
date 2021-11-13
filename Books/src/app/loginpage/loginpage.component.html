@@ -1,0 +1,33 @@
+<body class="wrapper login">
+  <div class="container">
+      <div class="col-left">
+          <div class="login-text">
+              <h2>Welcome Back</h2>
+              <p>Create your account.<br>It's totally free.</p>
+              <button  type="button" (click)="register()" class="btn">Sign Up</button>
+          </div>
+      </div>
+
+      <div class="col-right">
+          <div class="login-form">
+              <h2>Login</h2>
+              <form action="/login" method="POST">
+                  <p>
+                      <label>Username or email address<span>*</span></label>
+                      <input type="text" placeholder="Username or Email" name="email"  [(ngModel)]='email' required>
+                  </p>
+                  <p>
+                      <label>Password<span>*</span></label>
+                      <input type="password" placeholder="Password" name="password"  [(ngModel)]='password'required>
+                  </p>
+                  <p>
+                      <button type="button" value="Sign In" (click)="check()">Log in</button>
+                  </p>
+
+
+              </form>
+          </div>
+      </div>
+
+  </div>
+</body>

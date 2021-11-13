@@ -1,0 +1,17 @@
+body{
+
+  height: 600px;
+  background-size:cover;
+  width:auto;
+  background-image:url('../assets/image/bokk2.jpg');
+  /* background-position:80% 80%; */
+
+
+
+}
+h1{
+
+text-align: center;
+top: 10px;
+}
+

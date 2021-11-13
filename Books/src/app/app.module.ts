@@ -11,6 +11,9 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditbookComponent } from './editbook/editbook.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { FirstpageComponent } from './firstpage/firstpage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { EditbookComponent } from './editbook/editbook.component';
     RentedbooksComponent,
     InventoryComponent,
     AddbookComponent,
-    EditbookComponent
+    EditbookComponent,
+    LoginpageComponent,
+    RegistrationComponent,
+    FirstpageComponent
   ],
   imports: [
     BrowserModule,
