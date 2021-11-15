@@ -28,7 +28,7 @@
     style="width:400px" [(ngModel)]="searchBook"  />
     </div>
   <div class="panel-body">
-    <table class="table table-striped " border="1" >
+    <table class="table table-striped " >
       <thead>
         <th>ID</th>
         <th>Name</th>
@@ -42,7 +42,7 @@
           <td>{{ book.author }}</td>
           <td>{{ book.category }}</td>
           <td *ngIf="!book.isRented">
-            <button type="button"  data-target="#exampleModal"
+            <button type="button" style="margin-right:5px"  data-target="#exampleModal"
               class="btn btn-success " (click)="editnav(book._id)"
               >Edit Book</button>
 

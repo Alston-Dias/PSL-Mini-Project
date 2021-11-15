@@ -16,7 +16,7 @@ import { EditbookComponent } from './editbook/editbook.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CartComponent } from './cart/cart.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { BookFilterPipe } from './inventory/book-filter.pipe';
+import { BookFilterPipe } from './book-filter.pipe';
 
 @NgModule({
   declarations: [
