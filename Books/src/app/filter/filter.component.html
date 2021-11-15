@@ -1,0 +1,28 @@
+
+<div class="card filters">
+
+    <div class="card-header">
+      <strong>Filter by Category</strong>
+    </div>
+  
+    <div class="card-body">
+      <form>
+          <label for="book">Choose a category</label>
+          <section class="cursor">
+            <div>
+              <button >> All Books</button>
+            </div>
+            <div>
+              <div (click)="filter('Fiction')" >>Fiction</div>
+            </div>
+            <div>
+              <div  (click)="filter('Knowledge')">>Knowledge</div>
+            </div>
+            <div>
+              <div (click)="filter('Research')">>Research</div>
+            </div>
+
+          </section>  
+      </form>
+    </div>
+</div>
