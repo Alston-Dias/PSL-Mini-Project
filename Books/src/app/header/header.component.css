@@ -1,0 +1,24 @@
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: #009ade;
+}
+
+.icons_right{
+    float: right;
+    margin-right: 5%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.icons_gap {
+    margin: 0 15px;
+}
+.svg_icon {
+    height: 30px;
+    width: 30px;
+}
+.icons_left {
+    float: left;
+    margin-left: 30px;
+    margin-top: 15px;
+}
