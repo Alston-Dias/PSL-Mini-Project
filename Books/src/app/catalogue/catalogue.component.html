@@ -1,0 +1,41 @@
+
+<div class="row">
+    <div class="col-md-2">
+      <app-filter  (filterBooks)="getfilteredBooks($event)"></app-filter>
+    </div>
+
+
+    
+  
+    <div class="col-md-8">
+        
+        <div class="container">
+            <div class="row">
+              
+                <ng-container *ngFor="let book of bookList;" >
+                    <div  class="card col-md-3">
+                        <img [src]="book.imgPath">
+                        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">Title: {{book.title}}</h5>
+                        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">By - {{book.name}}</h5>
+                        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">Category: {{book.category}}</p>
+                        
+                        <button  class="btn btn-primary"  >Add to cart / Rent</button>
+                    </div>
+                </ng-container>
+        
+            </div>
+        </div>
+    </div>
+ 
+    <div class="col">
+        
+      <div class="card">
+        <h5 class="card-title">My Cart</h5>
+      </div>
+      <div>
+        <h4>Your cart is empty!</h4>
+        <h6>Add item to it now</h6>
+        <button  class="btn btn-primary">Shop Now</button>
+    </div>
+    </div>
+  </div>
