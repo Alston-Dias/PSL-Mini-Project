@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class InventoryComponent implements OnInit {
   bookList!: Array<Book>;
+  searchBook!:string;
   constructor(
     private bookdataService: BooksdataService,
     private router: Router

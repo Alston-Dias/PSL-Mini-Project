@@ -16,6 +16,7 @@ export class BooksListComponent implements OnInit {
   booksList !: Array<Book>
   wishlist : Array<Wishlist> = []
   cart : Array<Cart> = []
+  searchBook!:string
   constructor(private  bookdataService : BooksdataService, private data :  DataService) { }
 
   ngOnInit(): void {

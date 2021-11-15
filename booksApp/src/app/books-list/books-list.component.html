@@ -23,6 +23,10 @@
   <div class="panel-heading">
     <h2>Book List</h2>
   </div>
+  <div class="form-group" id="search-box">
+    <input type="text"  class="form-control" placeholder="Search by book name"
+    style="width:400px" [(ngModel)]="searchBook"  />
+    </div>
   <div class="panel-body">
     <table class="table table-striped ">
       <thead>
@@ -32,7 +36,7 @@
         <th>Category</th>
       </thead>
       <tbody>
-        <tr *ngFor="let book of booksList">
+        <tr *ngFor="let book of booksList | bookFilter:searchBook">
           <td>{{ book._id }}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
