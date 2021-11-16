@@ -13,15 +13,20 @@
           <div class="card-body">
             <form>
             <div class="custom-control custom-checkbox">
-                <input  type="radio" class="custom-control-input" id="Check1">
+                <input (click)="allbook()"  type="checkbox" class="custom-control-input" id="Check1">
                 <label class="custom-control-label" for="Check1">All Books</label>
                 
             </div> <!-- form-check.// -->
             <div class="custom-control custom-checkbox" *ngFor="let book of uniquecat" >
-                <input (click)="filterCategory(book)" type="radio" class="custom-control-input" id="Check2">
+                <input (click)="filterCategory(book)" type="checkbox" class="custom-control-input" id="Check2">
                <label class="custom-control-label" for="Check2">{{book}}</label>
             </div>
           </form>
+
+          <select style="width:150px" class="form-control"  >
+            <option  (click)="allbook()" >All Book</option>
+            <option  (click)="filterCategory(book)" *ngFor="let book of uniquecat"  >{{book}}</option>
+          </select>
             
             <!-- <div class="custom-control custom-checkbox" >
               <span class="float-right badge badge-light round">2</span>
