@@ -18,6 +18,8 @@ import { CartComponent } from './cart/cart.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { BookFilterPipe } from './book-filter.pipe';
 import { CategorySortPipe } from './category-sort.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,15 @@ import { CategorySortPipe } from './category-sort.pipe';
     CartComponent,
     UserRegistrationComponent,
     BookFilterPipe,
-    CategorySortPipe
+    CategorySortPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

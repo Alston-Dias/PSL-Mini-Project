@@ -11,7 +11,7 @@ import { Wishlist } from '../wishlist';
   styleUrls: ['./books-list.component.css']
 })
 export class BooksListComponent implements OnInit {
-
+  searchText : any;
   username !:string
   booksList !: Array<Book>
   wishlist : Array<Wishlist> = []
@@ -37,10 +37,10 @@ export class BooksListComponent implements OnInit {
     })
   }
 
-  rentBook(id:number){
-    this.bookdataService.putRentBooks(id,{isRented:true,username:window.localStorage.getItem('username')}).subscribe()
-    window.location.reload()
-  }
+  // rentBook(id:number){
+  //   this.bookdataService.putRentBooks(id,{isRented:true,username:window.localStorage.getItem('username')}).subscribe()
+  //   window.location.reload()
+  // }
 
   addtowishlist(id:number){
     var flag = false
@@ -71,6 +71,15 @@ export class BooksListComponent implements OnInit {
     }
     
   }
+  getfilteredBooks(value:any){
+    this.booksList=this.booksList.filter((item:any)=> item.category==value)
+    //console.log(this.bookList)
+    
+  }
+  allbook(value:any){
+    if(value)
+    this.ngOnInit();
+  }
   addtocart(id:number){
     var flag = false
     console.log("Add to cart called")
@@ -87,6 +96,7 @@ export class BooksListComponent implements OnInit {
       if(flag == false){
        alert("Book added to cart")
       this.bookdataService.addtocart({username : window.localStorage.getItem('username'), bookid:id}).subscribe()
+      window.location.reload()
       }
 
       else{
