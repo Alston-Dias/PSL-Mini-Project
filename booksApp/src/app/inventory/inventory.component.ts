@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 export class InventoryComponent implements OnInit {
   bookList!: Array<Book>;
   searchBook!:string;
+  categories: Array<string>=[]
+
+  uniquecat : Array<string>=[]
+
+  sortBook!:String;
   constructor(
     private bookdataService: BooksdataService,
     private router: Router
@@ -20,14 +25,31 @@ export class InventoryComponent implements OnInit {
     this.bookdataService.getBooks().subscribe(
       (books) => {
         this.bookList = books;
+        for(var b of this.bookList){
+          console.log(b)
+          this.categories.push(b.category)
+        }
+        this.uniquecat = [...new Set(this.categories)]
+
+        console.log("after uniquecat "+this.uniquecat)
       },
       (err) => console.log('Error in fetching data')
     );
   }
 
   delete(id: number) {
-    this.bookdataService.deleteBook(id).subscribe();
-    window.location.reload();
+    
+    var r = confirm("Are you sure you want to delete this book?");
+    if (r == true) {
+      this.bookdataService.deleteBook(id).subscribe();
+      
+      window.location.reload();
+      alert("Book deleted successfully")
+    
+    } else {
+      window.location.reload();
+    }
+    
   }
   addnav() {
     this.router.navigate(['/addbooks']);

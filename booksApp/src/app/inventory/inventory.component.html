@@ -21,22 +21,39 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Book List</h2>
+    <h2>Welcome Admin</h2>
+    <h3>Book List</h3>
   </div>
   <div class="form-group" id="search-box">
+    <div class='child float-left-child'>
     <input type="text"  class="form-control" placeholder="Search by book name"
     style="width:400px" [(ngModel)]="searchBook"  />
+  </div>
+    <!-- <div class='child float-left-child'>
+      <select style="width:150px" class="form-control"  >
+        <option *ngFor="let book of uniquecat"  [(ngModel)]="sortBook" >{{book}}</option>
+      </select>
+    </div> -->
     </div>
+   
+
+        <!-- <select >
+          <option [ngValue]="null" disabled>Select Country</option>
+          <option *ngFor="let book of uniquecat" >{{book}}</option>
+        </select> -->
+    
   <div class="panel-body">
     <table class="table table-striped " >
       <thead>
-        <th>ID</th>
+        <th>Sr no.</th>
+        <th>Book Code</th>
         <th>Name</th>
         <th>Author</th>
         <th>Category</th>
       </thead>
       <tbody>
-        <tr *ngFor="let book of bookList | bookFilter:searchBook">
+        <tr *ngFor="let book of bookList |bookFilter:searchBook">
+          <td ></td>
           <td>{{ book._id }}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>

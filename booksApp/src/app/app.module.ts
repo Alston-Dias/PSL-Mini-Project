@@ -17,6 +17,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { CartComponent } from './cart/cart.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { BookFilterPipe } from './book-filter.pipe';
+import { CategorySortPipe } from './category-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BookFilterPipe } from './book-filter.pipe';
     InventoryComponent,
     CartComponent,
     UserRegistrationComponent,
-    BookFilterPipe
+    BookFilterPipe,
+    CategorySortPipe
   ],
   imports: [
     BrowserModule,
