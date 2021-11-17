@@ -1,9 +1,11 @@
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddbookComponent } from './addbook/addbook.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { CartComponent } from './cart/cart.component';
 import { EditbookComponent } from './editbook/editbook.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +24,7 @@ const routes: Routes = [
     path: 'homepage',
     component: HomepageComponent,
     children:[
+      
       {
         path: '',
         redirectTo: 'booklist',
@@ -45,9 +48,20 @@ const routes: Routes = [
       },
       {
         path:'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        children:[
+          { path:'',
+            component:ViewprofileComponent,
+            pathMatch:'full'
+          },
+          {path:'view',
+          component:ViewprofileComponent},
+          {
+          path:'edit',
+          component: EditprofileComponent
+        }]
       }
-
+      
     ]
   },
   {

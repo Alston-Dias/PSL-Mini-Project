@@ -32,7 +32,16 @@ router.get('/getuser/:id',(req,res)=>{
         }
     })
 })
-
+router.put('/updateuser/:id',(req,res)=>{
+    User.findOneAndUpdate({_id:req.params.id},{$set:{fname: req.body.fname,lname: req.body.lname,email: req.body.email}},(err,user)=>{
+        if(err){
+            res.send("error in updating user")
+        }
+        else{
+            res.json(user)
+        }
+    })
+})
 router.post('/adduser',async(req,res)=>{
     var newUser = new User({
         _id: req.body._id,

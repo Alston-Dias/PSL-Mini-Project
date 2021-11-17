@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/user';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Book } from '../Book';
 import { BooksdataService } from '../booksdata.service';
 import { Cart } from '../cart';
 import { DataService } from '../data.service';
+import { User } from '../user';
 
 import { UserdataService } from '../userdata.service';
 import { Wishlist } from '../wishlist';
@@ -16,14 +18,14 @@ import { Wishlist } from '../wishlist';
 export class ProfileComponent implements OnInit {
 
   searchText : any;
-  username !:any
+  username !:string
   booksList !: Array<Book>
   wishlist : Array<Wishlist> = []
   cart : Array<Cart> = []
   uname!:any
   userobj :Array<User> =[]
-  
-  constructor(private  bookdataService : BooksdataService, private data :  DataService, private userdataService : UserdataService) { }
+  constructor(private  bookdataService : BooksdataService, private data :  DataService, private userdataService : UserdataService,
+    ) { }
 
   ngOnInit(): void {
     this.data.currentUsername.subscribe(username =>this.username = username)
@@ -41,11 +43,12 @@ export class ProfileComponent implements OnInit {
       this.cart = cart
       console.log("Here"+this.cart)
     })
-    this.username = sessionStorage.getItem('username')?.toString()
-    this.userdataService.getuser(this.username).subscribe(data=> {
+
+    this.userdataService.getuser(this.uname).subscribe(data=> {
       this.userobj.push(data)
       console.log("User "+this.userobj)
     })
   }
 
+  
 }

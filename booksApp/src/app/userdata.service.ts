@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/user';
+import { User } from './user';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +23,9 @@ export class UserdataService {
   addUser(data:any): Observable<any>{
     return this.http.post('http://localhost:3000/users/adduser',data)
   }
-}
 
+  editUser(id:any,User: User): Observable<any> {
+    return this.http.put("http://localhost:3000/users/updateuser/"+id, User)
+  }
+}
 
