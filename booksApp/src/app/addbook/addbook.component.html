@@ -2,19 +2,21 @@
   <div class="panel-heading">
   <h2>Add Book Form</h2>
 </div>
-  <form #addNewBookForm="ngForm" (submit)="addNewBook(addNewBookForm)" class="panel-body" id="addbook">
+  <form #addNewBookForm="ngForm" (submit)="addNewBook(addNewBookForm)" class="panel-body" id="addbook" [formGroup]="addbookForm">
     <div class="form-group">
       <label for="id">Code:</label>
       <input type="text"  placeholder="Enter id" class="form-control"
-       name="id"  required ngModel/>
+       name="id" ngModel formControlName="id"/>
+       <small class="form-text text-muted" *ngIf="id.touched && !id.valid && !id.errors?.['dupID']">Please Enter Id</small>
+       <small class="form-text text-muted" *ngIf="id.errors?.['dupID']">Duplicate Id</small>
     </div>
 
 
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" class="form-control"  placeholder="Enter title"
-       name="title"  required ngModel #title="ngModel"/>
-      <small class="form-text text-muted" *ngIf="title.touched && !title.valid">Please Enter Id</small>
+       name="title" ngModel formControlName="title"/>
+      <small class="form-text text-muted" *ngIf="title.touched && !title.valid">Please Enter Title</small>
     </div>
     <!-- <div *ngIf="!title1.valid && title1.touched">
     <div [hidden]
@@ -26,7 +28,7 @@
     <div class="form-group">
       <label for="author">Author:</label>
       <input type="text" class="form-control"  placeholder="Enter author"
-       name="author"  required ngModel #author="ngModel"/>
+       name="author" ngModel formControlName="author"/>
       <small class="form-text text-muted" *ngIf="author.touched && !author.valid">Please Enter Author Name</small>
     </div>
 
@@ -41,14 +43,14 @@
     <div class="form-group">
       <label  class="form-label" for="category">Category :  </label>
       <input  list="categories" class="form-control"  placeholder="Enter category" name="category"
-        required ngModel #category="ngModel"/>
+         ngModel formControlName="category"/>
       <small class="form-text text-muted" *ngIf="category.touched && !category.valid">Please Select a Category</small>
       <datalist id="categories" >
         <option *ngFor="let book of uniquecat">{{book}}</option>
       </datalist>
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!addNewBookForm.valid" id="addsubmit">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!addbookForm.valid" id="addsubmit">Submit</button>
     
   </form>
 
