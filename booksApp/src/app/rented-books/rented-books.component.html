@@ -38,7 +38,7 @@
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
           <td>{{ book.category }}</td>
-          <td *ngIf="book.isRented"><button (click)="returnBook(book._id)">Return</button></td>
+          <td *ngIf="book.isRented"><button (click)="returnBook(book._id)" class="btn btn btn-danger mx-3">Return</button></td>
         </tr>
       </tbody>
     </table>

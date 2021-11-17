@@ -20,10 +20,10 @@
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
             <td>{{ book.category }}</td>
-            <td *ngIf="!book.isRented"><button (click)="rent(book._id)" >Rent</button></td>
+            <td *ngIf="!book.isRented"><button (click)="rent(book._id)" class="btn btn-success" >Rent</button></td>
             <td *ngIf="book.isRented"><p>Book rented</p></td>
-            <td><button (click)="removeFromWishlist(book._id)" >Remove from wishlist</button></td>
-            <td><button (click)="addtocart(book._id)">Add To Cart</button></td>
+            <td><button (click)="removeFromWishlist(book._id)" class="btn btn btn-danger mx-3" >Remove from wishlist</button></td>
+            <td><button (click)="addtocart(book._id)" class="btn btn-primary">Add To Cart</button></td>
           </tr>
         </tbody>
       </table>

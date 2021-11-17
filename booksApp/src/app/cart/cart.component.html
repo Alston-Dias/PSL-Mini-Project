@@ -18,9 +18,9 @@
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
             <td>{{ book.category }}</td>
-            <td *ngIf="!book.isRented"><button (click)="rent(book._id)">Rent</button></td>
+            <td *ngIf="!book.isRented"><button (click)="rent(book._id)" class="btn btn-success">Rent</button></td>
             <td *ngIf="book.isRented"><p>Book rented</p></td>
-            <td><button (click)="removeFromCart(book._id)">Remove from cart</button></td>
+            <td><button (click)="removeFromCart(book._id)" class="btn btn btn-danger mx-3">Remove from cart</button></td>
           </tr>
         </tbody>
       </table>
