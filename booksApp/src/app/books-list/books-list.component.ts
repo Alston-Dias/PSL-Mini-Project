@@ -42,7 +42,7 @@ export class BooksListComponent implements OnInit {
   //   window.location.reload()
   // }
   getuname(){
-    return localStorage.getItem('username')
+    return sessionStorage.getItem('username')
   }
   addtowishlist(id:any){
     var flag = false
