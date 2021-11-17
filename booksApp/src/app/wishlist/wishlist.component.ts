@@ -61,7 +61,7 @@ export class WishlistComponent implements OnInit {
       console.log(book.title)
     }
   }
-  addtocart(id:number){
+  addtocart(id:any){
     var flag = false
     console.log("Add to cart called")
     if(this.cart.length < 3){
@@ -90,7 +90,7 @@ export class WishlistComponent implements OnInit {
     
   }
 
-  removeFromWishlist(bookid:number){
+  removeFromWishlist(bookid:any){
     for(var wish of this.wishlist){
       if(bookid === wish.bookid){
         console.log(wish._id)
@@ -102,7 +102,7 @@ export class WishlistComponent implements OnInit {
     }
   }
 
-  rent(bookid:number){
+  rent(bookid:any){
     this.booksdataService.putRentBooks(bookid,{isRented:true,username:window.localStorage.getItem('username')}).subscribe(response=>{
       console.log(response)
     },error=>{console.log("Error in renting")})

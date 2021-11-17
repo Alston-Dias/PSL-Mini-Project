@@ -11,7 +11,7 @@ import { BooksdataService } from '../booksdata.service';
 })
 export class AddbookComponent implements OnInit {
   bookList : Array<Book> =[];
-  id !: number
+  id !: any
   title!: string
   author !: string
   category: string = ""
@@ -47,9 +47,9 @@ export class AddbookComponent implements OnInit {
     // }
     // console.log()
   }
-  addNewBook(form: { value: {id:any, title: any; author: any; category: any; }; }) {
+  addNewBook(form: { value: { title: any; author: any; category: any; }; }) {
     const newBookData={ 
-      _id:form.value.id,
+      // _id:form.value.id,
       title:form.value.title,
       author:form.value.author,
       category:form.value.category,

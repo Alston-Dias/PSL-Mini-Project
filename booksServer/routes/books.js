@@ -37,7 +37,7 @@ router.get('/getbookusername/:username',auth,(req,res)=>{
 
 router.post('/addbook',auth,(req,res)=>{
     var newBook = new Book({
-        _id: req.body._id,
+        // _id: req.body._id,
         title: req.body.title,
         author: req.body.author,
         category: req.body.category,

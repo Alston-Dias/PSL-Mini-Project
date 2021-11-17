@@ -36,10 +36,10 @@ export class InventoryComponent implements OnInit {
   addnav() {
     this.router.navigate(['/addbooks']);
   }
-  editnav(id: number){
+  editnav(id: any){
     this.router.navigate(["/editbook",id])
   }
-  saveID(saveID:number){
+  saveID(saveID:any){
  this.sID=saveID
   }
 }
