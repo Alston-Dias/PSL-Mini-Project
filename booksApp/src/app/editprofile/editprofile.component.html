@@ -1,19 +1,24 @@
 <div>
+  <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
 <form #updateUserForm="ngForm" id="editbook" class="panel-body" >
-    <div class="form-group">
+    <div class="form-group" style="width:500px">
       <label for="fname">First Name</label> <span class="notif" *ngIf="fname.value!=og_userobj.fname">Modified !</span>
       <input type="text" class="form-control" id="fname"  name="fname" [(ngModel)]='userobj.fname' required #fname="ngModel">
       <small class="form-text text-muted" *ngIf="fname.touched && !fname.valid">Please Enter First Name</small>
       
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="width:500px">
       <label for="lname">Last Name</label> <span class="notif" *ngIf="lname.value!=og_userobj.lname">Modified !</span>
       <input type="text" class="form-control" id="lname"  name="lname" [(ngModel)]='userobj.lname' required #lname="ngModel">
       <small class="form-text text-muted" *ngIf="lname.touched && !lname.valid">Please Enter Last Name</small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="width:500px">
         <label for="email">Email</label> <span class="notif" *ngIf="email.value!=og_userobj.email">Modified !</span>
         <input type="email" class="form-control" id="email"  name="email" [(ngModel)]='userobj.email' required #email="ngModel">
         <small class="form-text text-muted" *ngIf="email.touched && !email.valid">Please Enter Last Name</small>
@@ -21,7 +26,13 @@
   
 
     <button type="submit" class="btn btn-success" (click)="update()" [disabled]="!updateUserForm.valid" id="editsubmit">Update</button>
-    <button class="btn btn-secondary" (click)="resetdefault()" id="reset-button">Reset</button>
+    <button class="btn btn-secondary" (click)="resetdefault()" id="reset-button" style="margin-top:10px">Reset</button>
     
   </form>
+  <div class="row">
+            
+  </div>
+  </div>
+</div>
+</div>
 </div>

@@ -14,7 +14,7 @@ export class EditprofileComponent implements OnInit {
   userobj:User;
   og_userobj:User;
 
-  constructor(private userdataService : UserdataService)
+  constructor(private userdataService : UserdataService,private router: Router,private route: ActivatedRoute)
    {
      this.userobj=new User();
      this.og_userobj=new User();
@@ -32,6 +32,7 @@ export class EditprofileComponent implements OnInit {
     this.userdataService.editUser(this.uname,this.userobj).subscribe()
     Object.assign(this.og_userobj,this.userobj)
     alert("details updated successfully")
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   resetdefault(){
