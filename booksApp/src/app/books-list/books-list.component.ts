@@ -55,7 +55,7 @@ export class BooksListComponent implements OnInit {
         }
       if(flag == false){
        alert("Book added to wishlist")
-      this.bookdataService.addtowishlist({username : window.localStorage.getItem('username'), bookid:id}).subscribe()
+      this.bookdataService.addtowishlist({username : sessionStorage.getItem('username'), bookid:id}).subscribe()
       window.location.reload()
       }
 
@@ -88,7 +88,7 @@ export class BooksListComponent implements OnInit {
 
       if(flag == false){
        alert("Book added to cart")
-      this.bookdataService.addtocart({username : window.localStorage.getItem('username'), bookid:id}).subscribe()
+      this.bookdataService.addtocart({username : sessionStorage.getItem('username'), bookid:id}).subscribe()
       window.location.reload()
       }
 
