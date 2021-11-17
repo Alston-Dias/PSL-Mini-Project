@@ -25,8 +25,10 @@ export class BooksListComponent implements OnInit {
     this.bookdataService.getBooks().subscribe(books=>{
       this.booksList = books
     },err => console.log("Error in fetching books"+err))
+
     console.log("Username  from booklist"+ sessionStorage.getItem('username'))
    this.uname = sessionStorage.getItem('username')
+   
     this.bookdataService.getwishlist(sessionStorage.getItem('username')).subscribe(wishlist => {
       this.wishlist = wishlist
       console.log(this.wishlist)
