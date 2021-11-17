@@ -56,7 +56,7 @@ router.post('/addbook',auth,(req,res)=>{
 })
 
 router.put('/updatebook/:id',auth,(req,res)=>{
-    Book.findOneAndUpdate({_id:req.params.id},{$set:{title: req.body.title}},(err,book)=>{
+    Book.findOneAndUpdate({_id:req.params.id},{$set:{title: req.body.title,author:req.body.author,category:req.body.category}},(err,book)=>{
         if(err){
             res.send("error in updating book")
         }
