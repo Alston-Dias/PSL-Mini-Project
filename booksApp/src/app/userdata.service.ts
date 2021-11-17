@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
@@ -10,10 +10,14 @@ import { User } from './user';
 })
 export class UserdataService {
 
+  token = sessionStorage.getItem('token')
+  token2 : any
+
   constructor(private  http : HttpClient) { }
 
   getuser(id: string):Observable<User>{
-    return  this.http.get<User>('http://localhost:3000/users/getuser/'+id)
+    this.token2 = this.token?.toString()
+    return  this.http.get<User>('http://localhost:3000/users/getuser/'+id,{headers:new HttpHeaders().append('x-access-token',this.token2)})
   }
 
   loginCheck(username: string, password: string): Observable<User>{
