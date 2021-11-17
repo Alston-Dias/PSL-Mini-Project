@@ -52,46 +52,14 @@
                 </ul>
               </div>
             </div>
-            <div *ngFor="let user of userobj">
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">First Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{user.fname}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Last Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{user.lname}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{user.email}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Password</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{user.password}}
-                    </div>
-                  </div>
-                  <hr>
+            <div>
+            <div>
+              <nav style="background-color: white">
+                <a routerLink="view">View</a>
+                <a routerLink="edit">Edit</a>
+              </nav>   
+            <router-outlet></router-outlet>
+            </div>
                   <!-- <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Phone</h6>
@@ -119,15 +87,7 @@
                     </div>
                   </div>
                   <hr> -->
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank"
-                       href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">

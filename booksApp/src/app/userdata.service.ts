@@ -21,6 +21,10 @@ export class UserdataService {
   addUser(data:any): Observable<any>{
     return this.http.post('http://localhost:3000/users/adduser',data)
   }
+
+  editUser(id:any,User: User): Observable<any> {
+    return this.http.put("http://localhost:3000/users/updateuser/"+id, User)
+  }
 }
 
 

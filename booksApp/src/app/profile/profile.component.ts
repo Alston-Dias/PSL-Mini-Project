@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../Book';
 import { BooksdataService } from '../booksdata.service';
 import { Cart } from '../cart';
@@ -21,7 +22,8 @@ export class ProfileComponent implements OnInit {
   cart : Array<Cart> = []
   uname!:any
   userobj :Array<User> =[]
-  constructor(private  bookdataService : BooksdataService, private data :  DataService, private userdataService : UserdataService) { }
+  constructor(private  bookdataService : BooksdataService, private data :  DataService, private userdataService : UserdataService,
+    ) { }
 
   ngOnInit(): void {
     this.data.currentUsername.subscribe(username =>this.username = username)
@@ -40,10 +42,11 @@ export class ProfileComponent implements OnInit {
       console.log("Here"+this.cart)
     })
 
-    this.userdataService.getuser('reynold1234').subscribe(data=> {
+    this.userdataService.getuser(this.uname).subscribe(data=> {
       this.userobj.push(data)
       console.log("User "+this.userobj)
     })
   }
 
+  
 }

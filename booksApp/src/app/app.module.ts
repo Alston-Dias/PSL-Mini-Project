@@ -19,6 +19,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterComponent } from './filter/filter.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ProfileComponent } from './profile/profile.component';
     CartComponent,
     UserRegistrationComponent,
     FilterComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditprofileComponent,
+    ViewprofileComponent
   ],
   imports: [
     BrowserModule,
