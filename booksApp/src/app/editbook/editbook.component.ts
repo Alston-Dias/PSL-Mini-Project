@@ -14,6 +14,9 @@ export class EditbookComponent implements OnInit {
   bookid:any;
   og_book : Book;
 
+  categories: Array<string>=[]
+  uniquecat : Array<string>=[]
+
   constructor(
     private bookdataService: BooksdataService,
     private router: Router,
@@ -30,6 +33,16 @@ export class EditbookComponent implements OnInit {
       (book) => {
         this.book = book;
         Object.assign(this.og_book,book);
+      },
+      (err) => console.log('Error in fetching data')
+    );
+
+    this.bookdataService.getBooks().subscribe(
+      (books) => {
+        for(var b of books){
+          this.categories.push(b.category)
+        }
+        this.uniquecat = [...new Set(this.categories)]
       },
       (err) => console.log('Error in fetching data')
     );
