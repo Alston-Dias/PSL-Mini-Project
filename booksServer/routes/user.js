@@ -11,7 +11,7 @@ dotEnv.config()
 const auth = require("../middleware/auth");
 require("../passport-conf")
 
-router.get('/getusers',(req,res)=>{
+router.get('/getusers',auth,(req,res)=>{
     User.find({},(err,Users)=>{
         if(err){
             res.send("error had occured")
@@ -22,7 +22,7 @@ router.get('/getusers',(req,res)=>{
     })
 })
 
-router.get('/getuser/:id',(req,res)=>{
+router.get('/getuser/:id',auth,(req,res)=>{
     User.findOne({_id:req.params.id},(err,user)=>{
         if(err){
             res.send("error had occured")
@@ -144,10 +144,6 @@ router.post("/login", async(req, res, next) => { //to autenticate
       })(req, res, next);
     });
    
-
-router.post("/welcome", auth, (req, res) => {
-    res.status(200).send("Welcome 🙌 ");
-  });
 
 
 
