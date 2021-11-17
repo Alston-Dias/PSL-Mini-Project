@@ -18,6 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterComponent } from './filter/filter.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FilterComponent } from './filter/filter.component';
     InventoryComponent,
     CartComponent,
     UserRegistrationComponent,
-    FilterComponent
+    FilterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

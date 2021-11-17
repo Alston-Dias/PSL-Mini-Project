@@ -7,6 +7,7 @@ import { EditbookComponent } from './editbook/editbook.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RentedBooksComponent } from './rented-books/rented-books.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -41,7 +42,12 @@ const routes: Routes = [
       {
         path:'cart',
         component: CartComponent
+      },
+      {
+        path:'profile',
+        component: ProfileComponent
       }
+
     ]
   },
   {
