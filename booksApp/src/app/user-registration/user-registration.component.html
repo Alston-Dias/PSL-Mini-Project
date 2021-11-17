@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Registration</h2>
-    <form>
+    <form #signup="ngForm">
       <!--Firstname-->
       <div class="form-group">
         <label for="fname">First Name:</label>
@@ -51,7 +51,7 @@
   
   
   
-     <button type="submit" class="btn btn-primary" (click)='submit()'>Submit</button> 
+     <button type="submit" class="btn btn-primary" [disabled]="signup.invalid" (click)='submit()'>Submit</button> 
      <button type="reset" class="btn btn-primary" >Cancel</button>
     </form>
   </div>

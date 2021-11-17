@@ -76,17 +76,23 @@
         <div class="col-right">
             <div class="login-form">
                 <h2>Login</h2>
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" #login = "ngForm">
                     <p>
                         <label>Username<span>*</span></label>
-                        <input type="text" placeholder="Username" name="username"  [(ngModel)]='username' required>
+                        <input type="text" placeholder="Username" name="username" ngModel #un = "ngModel"  [(ngModel)]='username' required>
                     </p>
+                    <div *ngIf = "un.touched">
+                        <div *ngIf="un.errors?.['required']" class="aler alert-danger">Username is mandatory</div>
+                    </div>
                     <p>
                         <label>Password<span>*</span></label>
-                        <input type="password" placeholder="Password" name="password"  [(ngModel)]='password'required>
+                        <input type="password" placeholder="Password" name="password" ngModel #pas = "ngModel"  [(ngModel)]='password'required>
                     </p>
+                    <div *ngIf = "pas.touched">
+                        <div *ngIf="pas.errors?.['required']" class="aler alert-danger">Password is mandatory</div>
+                    </div>
                     <p>
-                        <button type="button" value="Sign In" (click)="onLoginClick(username,password)">Log in</button>
+                        <button type="button" value="Sign In" [disabled]="login.invalid" (click)="onLoginClick(username,password)">Log in</button>
                     </p>
   
   

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   password !: string
 
   user : any = null
+  invalidLogin = false
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
     })
     setTimeout(async () => {
       if (this.user.message) {
+        this.invalidLogin = true
         alert(this.user.message)
       }
       else {
