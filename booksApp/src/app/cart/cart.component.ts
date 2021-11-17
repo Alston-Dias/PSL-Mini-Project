@@ -16,12 +16,12 @@ export class CartComponent implements OnInit {
   constructor(private booksdataService: BooksdataService) { }
 
   ngOnInit(): void {
-    console.log("Username in cart is " + window.localStorage.getItem('username'))
-    this.booksdataService.getcart(window.localStorage.getItem('username')).subscribe(cart => {
+    console.log("Username in cart is " + sessionStorage.getItem('username'))
+    this.booksdataService.getcart(sessionStorage.getItem('username')).subscribe(cart => {
       this.cartlist = cart
     })
 
-    this.booksdataService.getRentBooks(window.localStorage.getItem('username')).subscribe(books => {
+    this.booksdataService.getRentBooks(sessionStorage.getItem('username')).subscribe(books => {
       this.RentedBooklist = books
     }, err => console.log('error in fetching data' + err))
 
@@ -72,7 +72,7 @@ export class CartComponent implements OnInit {
   }
   rent(bookid: any) {
     if (this.RentedBooklist.length < 3) {
-      this.booksdataService.putRentBooks(bookid, { isRented: true, username: window.localStorage.getItem('username') }).subscribe(response => {
+      this.booksdataService.putRentBooks(bookid, { isRented: true, username: sessionStorage.getItem('username') }).subscribe(response => {
         console.log(response)
       }, error => { console.log("Error in renting") })
       window.location.reload()

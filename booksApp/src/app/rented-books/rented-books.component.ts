@@ -17,8 +17,8 @@ export class RentedBooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.currentUsername.subscribe(username =>this.username = username)
-    console.log('username from rented books '+window.localStorage.getItem('username'))
-    this.bookdataService.getRentBooks(window.localStorage.getItem('username')).subscribe(books =>{
+    console.log('username from rented books '+sessionStorage.getItem('username'))
+    this.bookdataService.getRentBooks(sessionStorage.getItem('username')).subscribe(books =>{
       this.booksList = books
     },err=>console.log('error in fetching data'+err))
   }

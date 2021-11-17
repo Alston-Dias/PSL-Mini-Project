@@ -17,8 +17,8 @@ export class WishlistComponent implements OnInit {
   constructor(private booksdataService: BooksdataService) { }
 
   ngOnInit(): void {
-    console.log("Username in wishlist is " + window.localStorage.getItem('username'))
-    this.booksdataService.getwishlist(window.localStorage.getItem('username')).subscribe(wishlist => {
+    console.log("Username in wishlist is " + sessionStorage.getItem('username'))
+    this.booksdataService.getwishlist(sessionStorage.getItem('username')).subscribe(wishlist => {
       this.wishlist = wishlist
     })
 
@@ -37,7 +37,7 @@ export class WishlistComponent implements OnInit {
 
 
     //Loading cart 
-    this.booksdataService.getcart(window.localStorage.getItem('username')).subscribe(cart=> {
+    this.booksdataService.getcart(sessionStorage.getItem('username')).subscribe(cart=> {
       this.cart= cart
     })
  }
@@ -76,7 +76,7 @@ export class WishlistComponent implements OnInit {
 
       if(flag == false){
        alert("Book added to cart")
-      this.booksdataService.addtocart({username : window.localStorage.getItem('username'), bookid:id}).subscribe()
+      this.booksdataService.addtocart({username : sessionStorage.getItem('username'), bookid:id}).subscribe()
       }
 
       else{
@@ -103,7 +103,7 @@ export class WishlistComponent implements OnInit {
   }
 
   rent(bookid:any){
-    this.booksdataService.putRentBooks(bookid,{isRented:true,username:window.localStorage.getItem('username')}).subscribe(response=>{
+    this.booksdataService.putRentBooks(bookid,{isRented:true,username:sessionStorage.getItem('username')}).subscribe(response=>{
       console.log(response)
     },error=>{console.log("Error in renting")})
     window.location.reload()
