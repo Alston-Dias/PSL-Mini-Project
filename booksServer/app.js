@@ -2,7 +2,25 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
+//////changes
+const bcrypt=require('bcrypt')
+const passport=require("passport")
+const passportLocal=require("passport-local").Strategy
+const cookiesParser=require("cookies-parser")
+const session=require("express-session")
 
+
+//var cors = require('cors')
+// Add headers
+
+
+app.use(session({
+    secret:"secretcode",
+    resave:true,
+    saveUninitialized:true
+    
+    }))
+    
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -33,11 +51,15 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/carts',require('./routes/cart'))
 app.use('/wishlists',require('./routes/wishlist'))
 app.use('/books',require('./routes/books'))
 app.use('/users',require('./routes/user'))
+
+
+
 
 app.listen(process.env.PORT,()=>{
     console.log("Server listening to " + process.env.PORT)

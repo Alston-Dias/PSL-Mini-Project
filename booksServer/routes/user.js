@@ -3,8 +3,13 @@ var User = require('../User.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const dotEnv = require('dotenv')
+const passport=require("passport")
+const passportLocal=require("passport-local").Strategy
+const cookiesParser=require("cookies-parser")
+const session=require("express-session")
 dotEnv.config()
 const auth = require("../middleware/auth");
+require("../passport-conf")
 
 router.get('/getusers',(req,res)=>{
     User.find({},(err,Users)=>{
@@ -61,37 +66,84 @@ router.post('/adduser',async(req,res)=>{
     })
 })
 
-router.post('/login',async(req,res)=>{
- try{
+// router.post('/login',async(req,res)=>{
+//  try{
+//     const id = req.body.username
+//     const password =  req.body.password
+
+//     const user = await User.findOne({_id:id})
+//     const validPassword = await bcrypt.compare(password,user.password)
+
+//     if(validPassword){
+
+//         const token = jwt.sign(
+//             { user_id: user._id},
+//             process.env.TOKEN_KEY,
+//             {
+//               expiresIn: "2h",
+//             }
+//           );
+
+//           user.token = token
+//         res.json(user)
+//     }
+//     else{
+//         res.json({message:"Invalid password"})
+//     }
+//  }
+//  catch{
+//     console.log('Invalid username or user does not exits')
+//     return res.json({message:"Invalid username user does not exits"})
+    
+//  }
+// })
+
+
+
+
+router.post("/login", async(req, res, next) => { //to autenticate
+   
     const id = req.body.username
     const password =  req.body.password
-
-    const user = await User.findOne({_id:id})
-    const validPassword = await bcrypt.compare(password,user.password)
-
-    if(validPassword){
-
-        const token = jwt.sign(
-            { user_id: user._id},
-            process.env.TOKEN_KEY,
-            {
-              expiresIn: "2h",
-            }
-          );
-
-          user.token = token
-        res.json(user)
-    }
-    else{
-        res.json({message:"Invalid password"})
-    }
- }
- catch{
-    console.log('Invalid username or user does not exits')
-    return res.json({message:"Invalid username user does not exits"})
+    console.log(id)
+    console.log(password)
     
- }
-})
+    passport.authenticate('local',function(err, user, info) {
+        console.log(user)
+        if(err) throw err
+        if (!user) 
+
+        { 
+          console.log(info)
+         
+          return res.json(info) 
+        }
+        else {
+          req.logIn(user, (err) => {
+            if (err) {
+                throw err
+            };
+         
+        
+            console.log("Successfully Authenticated");
+            console.log(req.user);
+            const token = jwt.sign(
+             { user_id: user._id},
+                    process.env.TOKEN_KEY,
+                    {
+                     expiresIn: "2h",
+                    }
+                );
+                
+                user.token = token
+                //res.json(user)
+            return res.status(200).json(user);
+            
+          });
+        }
+      })(req, res, next);
+    });
+   
 
 router.post("/welcome", auth, (req, res) => {
     res.status(200).send("Welcome 🙌 ");
