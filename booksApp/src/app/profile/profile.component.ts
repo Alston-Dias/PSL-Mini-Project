@@ -16,12 +16,13 @@ import { Wishlist } from '../wishlist';
 export class ProfileComponent implements OnInit {
 
   searchText : any;
-  username !:string
+  username !:any
   booksList !: Array<Book>
   wishlist : Array<Wishlist> = []
   cart : Array<Cart> = []
   uname!:any
   userobj :Array<User> =[]
+  
   constructor(private  bookdataService : BooksdataService, private data :  DataService, private userdataService : UserdataService) { }
 
   ngOnInit(): void {
@@ -40,8 +41,8 @@ export class ProfileComponent implements OnInit {
       this.cart = cart
       console.log("Here"+this.cart)
     })
-
-    this.userdataService.getuser('reynold1234').subscribe(data=> {
+    this.username = sessionStorage.getItem('username')?.toString()
+    this.userdataService.getuser(this.username).subscribe(data=> {
       this.userobj.push(data)
       console.log("User "+this.userobj)
     })
