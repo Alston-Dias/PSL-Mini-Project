@@ -10,7 +10,7 @@ import { User } from './user';
 })
 export class UserdataService {
 
-  token:any = sessionStorage.getItem('token')?.toString()
+  token = sessionStorage.getItem('token')
   token2 : any
 
   constructor(private  http : HttpClient) { }
@@ -29,9 +29,7 @@ export class UserdataService {
   }
 
   editUser(id:any,User: User): Observable<any> {
-    console.log("token in sessionStorage is: "+sessionStorage.getItem('token'))
-    console.log("token is: "+this.token)
-    return this.http.put("http://localhost:3000/users/updateuser/"+id,User,{headers:new HttpHeaders().append('x-access-token',this.token)})
+    return this.http.put("http://localhost:3000/users/updateuser/"+id, User)
   }
 }
 

@@ -1,6 +1,6 @@
 <!-- <button (click)= "showwishlist()" class="btn btn-default">Show wishlist</button> -->
 
-<div class="panel panel-primary">
+<!-- <div class="panel panel-primary">
     <div class="panel-heading">
       <h2>Book List</h2>
     </div>
@@ -28,4 +28,23 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->
+
+  <body>
+    <h2 *ngIf="booklist.length ==0" style="color: red; width: 100%;text-align: center;">Nothing in wishlist!</h2>
+    <div class="container">
+      <div class="card" *ngFor="let book of booklist">
+        <div class="box">
+          <div class="content">
+            <h2>{{book.category}}</h2>
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+            <a *ngIf="!book.isRented" (click)="rent(book._id)">Rent</a> <br>
+            <p *ngIf="book.isRented" style="color: red;">Book rented</p>
+            <a (click)="addtocart(book._id)" >Add to cart</a>
+            <a (click)="removeFromWishlist(book._id)" >Remove from wishlist</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>
