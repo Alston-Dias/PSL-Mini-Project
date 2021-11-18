@@ -29,7 +29,8 @@ export class UserdataService {
   }
 
   editUser(id:any,User: User): Observable<any> {
-    return this.http.put("http://localhost:3000/users/updateuser/"+id, User)
+    this.token2 = this.token?.toString()
+    return this.http.put("http://localhost:3000/users/updateuser/"+id, User,{headers:new HttpHeaders().append('x-access-token',this.token2)})
   }
 }
 
