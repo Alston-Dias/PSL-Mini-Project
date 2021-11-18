@@ -43,4 +43,14 @@ export class InventoryComponent implements OnInit {
   saveID(saveID:number){
     this.sID=saveID
   }
+  logout(){
+    if (confirm('Are you sure you want to logout?')) {
+      sessionStorage.clear()
+    localStorage.clear()
+    this.router.navigate(["login"])
+    } else {
+
+    }
+    
+  }
 }
