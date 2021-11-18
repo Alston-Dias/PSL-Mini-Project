@@ -55,15 +55,7 @@ router.post('/adduser',async(req,res)=>{
     const salt = await bcrypt.genSalt(10)
     newUser.password = await bcrypt.hash(newUser.password,salt)
 
-    const token = jwt.sign(
-        { user_id: newUser._id},
-        process.env.TOKEN_KEY,
-        {
-          expiresIn: "2h",
-        }
-      );   
-
-      newUser.token = token
+      newUser.token = ""
     
     newUser.save((err,user)=>{
         if(err){
