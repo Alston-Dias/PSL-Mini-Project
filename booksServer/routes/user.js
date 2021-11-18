@@ -32,7 +32,7 @@ router.get('/getuser/:id',auth,(req,res)=>{
         }
     })
 })
-router.put('/updateuser/:id',auth,(req,res)=>{
+router.put('/updateuser/:id',(req,res)=>{
     User.findOneAndUpdate({_id:req.params.id},{$set:{fname: req.body.fname,lname: req.body.lname,email: req.body.email}},(err,user)=>{
         if(err){
             res.send("error in updating user")
